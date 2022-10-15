@@ -17,7 +17,7 @@ export const SocketProvider = ({
     return () => {
       newSocket.close();
     };
-  }, [setSocket]);
+  }, []);
 
   return (
     <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>

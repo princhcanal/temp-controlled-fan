@@ -5,6 +5,7 @@
 #define DHTTYPE DHT11
 
 #define DC_FAN_PIN 9
+#define TEMP_THRESHOLD 30
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -35,7 +36,7 @@ void sendTemperature() {
   Serial.println(temperature);
 
   if (fanIsOn) {
-    if (temperature < 30) {
+    if (temperature < TEMP_THRESHOLD) {
       analogWrite(DC_FAN_PIN, 0);
     } else {
       analogWrite(DC_FAN_PIN, fanSpeed);
